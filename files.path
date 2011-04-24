@@ -4,4 +4,4 @@
 .gitconfig
 .vimrc
 .xinitrc
-xmonad.hs=~/.xmonad
+xmonad.hs	~/.xmonad

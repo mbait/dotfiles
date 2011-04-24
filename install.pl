@@ -15,7 +15,7 @@ while (<FH>) {
 close FH;
 
 my $cwd = getcwd;
-while (<.*>) {
+while (<{.,?}*>) {
 	if (exists $list{$_}) {
 		system "ln -s $cwd/$_ $list{$_}";
 	} else {
