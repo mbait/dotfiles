@@ -23,8 +23,6 @@ urxvtc -title irssi -e screen -r irssi &
 urxvtc -title mcabber -e screen -r mcabber &
 
 xsetroot -cursor_name left_ptr
-# swap Caps and Esc keys
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 exec /usr/bin/xmonad
 
