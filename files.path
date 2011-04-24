@@ -1,0 +1,6 @@
+.Xmodmap
+.Xresources
+.bashrc
+.gitconfig
+.vimrc
+.xinitrc
