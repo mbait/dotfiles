@@ -1,0 +1,3 @@
+bug: if ~/.xmonad/ is absent xmonad.hs will be maped incorrecty
+feature: process only listed items instead of searching in local directory
+feature: remove dot of all config files
