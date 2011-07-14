@@ -14,7 +14,6 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-
 # Put your fun stuff here.
 AXIOM='/home/mbait/src/fricas/ax-build/target/i686-pc-linux/'
 export AXIOM
@@ -24,3 +23,10 @@ export PATH
 # original PS1
 # export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 export PS1='\[\033[01;32m\]\[\u@`uname -n`\[\033[01;34m\]:\w (`jobs | wc -l`)\]\n>\[\033[00m\] '
+# set default browser
+export BROWSER=chromium-browser
+
+# enable autocomplete in sudo
+complete -cf sudo
+
+alias wgetpaste='wgetpaste -Ct'
