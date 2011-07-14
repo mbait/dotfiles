@@ -58,6 +58,7 @@ map <silent> <leader>ns :set nospell<CR>
 "imap ( ()<LEFT>
 "imap { {}<LEFT>
 imap <C-L> <C-O>a
+nmap <leader>gi <Plug>VCSAnnotate :!git show <C-R><C-W><CR> :q<CR>
 "map <F9> :exec ":!./$(find -type f -executable | head -1)".<CR><CR>
 
 " autoload vim settings from cwd
