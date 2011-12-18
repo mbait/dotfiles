@@ -46,12 +46,12 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
       lDate = date "^fg(white)%a %x"
 
 myManageHook = composeAll [
-					title =? "irssi" --> doShift "chat"
-					,title =? "rtorrent" --> doShift "misc" 
-					,title =? "mcabber" --> doShift "chat" 
+					title =? "irssi" --> doShift "4:chat"
+					,title =? "rtorrent" --> doShift "4:misc" 
+					,title =? "mcabber" --> doShift "4:chat" 
 					,title =? "GIMP"	--> doFloat
 					,title =? "VLC media player"	--> doFloat
-					,className =? "freedroidRPG"	--> doShift "misc"
+					,className =? "freedroidRPG"	--> doShift "5:misc"
 				]
 myKeys conf@(XConfig {XMonad.modMask = modm}) = 
 			[
@@ -70,14 +70,16 @@ myStartupHook = do
    screenWorkspace 1 >>= flip whenJust (windows . W.view)
    -- Force the second screen to "misc", e.g. if the first screen already has
    -- the workspace associated the screens will swap workspaces.
-   windows $ W.greedyView "misc"
+   windows $ W.greedyView "5:misc"
    -- Focus the first screen again.
    screenWorkspace 0 >>= flip whenJust (windows . W.view)
 
 dzenFont = "'-*-terminus-medium-*-*-*-12-120-75-75-c-*-iso10646-1'"
-myStatusBar = "dzen2  -bg '#222222' -fg '#777777' -h 16 -ta l -sa c -w 570 -e '' -fn " ++ dzenFont
-myNotify_irss = "pgrep tail || tail -f /home/mbait/.irssi/irssi_pipe | dzen2 -x 570 -tw 380 -ta l -l 6 -bg '#222222' -h 16 -fn " ++ dzenFont -- ++ " -e 'button1=exec:echo \"^tw()\">~mbait/.irssi/irssi_pipe;entertitle=grabmouse;leaveslave=ungrabmouse'"
-myNotify_mail = "pgrep system.pl || $HOME/scripts/system.pl | dzen2 -ta r -x 900 -w 380 -bg '#222222' -h 16 -fn " ++ dzenFont
+myStatusBar = "dzen2  -bg '#222222' -fg '#777777' -h 16 -ta l -sa c -w 800 -e '' -fn " ++ dzenFont
+--myNotify_irss = "pgrep tail || tail -f /home/mbait/.irssi/irssi_pipe | dzen2 -x 570 -tw 380 -ta l -l 6 -bg '#222222' -h 16 -fn " ++ dzenFont -- ++ " -e 'button1=exec:echo \"^tw()\">~mbait/.irssi/irssi_pipe;entertitle=grabmouse;leaveslave=ungrabmouse'"
+--myNotify_mail = "pgrep mailcheck || $HOME/scripts/mailcheck.sh | dzen2 -ta r -x 800 -w 222 -bg '#222222' -h 16 -fn " ++ dzenFont
+myNotify_mail = "pgrep gnox_dzen || $HOME/scripts/gnox_dzen.sh " ++ dzenFont
+--myNotify_mail = "pgrep mailcheck || $HOME/scripts/mailcheck.sh | dzen2 -fn " ++ dzenFont
 
 myPlacement = (smart (0.5, 0.5))
 
@@ -94,7 +96,7 @@ main = do
 				   borderWidth        = 2,
 				   modMask            = mod4Mask,
 				   --numlockMask        = mod2Mask,
-				   workspaces         = ["main","media","dev","chat","misc"],
+				   workspaces         = ["1:main","2:media","3:dev","4:chat","5:misc"],
 				   normalBorderColor  = "lightblue",
 				   focusedBorderColor = "orange",
 

@@ -24,9 +24,8 @@ export PATH
 # export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 export PS1='\[\033[01;32m\]\[\u@`uname -n`\[\033[01;34m\]:\w (`jobs | wc -l`)\]\n>\[\033[00m\] '
 # set default browser
-export BROWSER=chromium-browser
+# export BROWSER=chromium-browser
+export GWT_TOOLS=~/src/gwt-svn/tools/
 
 # enable autocomplete in sudo
 complete -cf sudo
-
-alias wgetpaste='wgetpaste -Ct'

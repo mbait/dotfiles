@@ -32,6 +32,8 @@ let VCSCommandGitDiffOpt='--no-prefix'
 let g:netrw_browsex_viewer="xdg-open"
 let g:gs_indent_log=0
 
+let g:gist_clip_command='xclip'
+
 hi CursorLine cterm=NONE ctermbg=242
 "hi CursorLine cterm=reverse
 
@@ -75,4 +77,12 @@ filetype on
 filetype indent on
 
 runtime! ftplugin/man.vim
+
+let g:pep8_map='<F8>'
+
+" Fix weird colors in vimdiff
+highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
+highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
+highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta
 " End .vimrc

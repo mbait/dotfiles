@@ -4,6 +4,8 @@ userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+torrents=torrents/
+rtorrent_lock=$torrents/.session/rtorrent.lock
 
 # Set keyboard layout
 setxkbmap -model pc105 -layout "us,ru(winkeys)" -option "grp:alt_shift_toggle,grp:led_scroll"
@@ -15,14 +17,17 @@ setxkbmap -model pc105 -layout "us,ru(winkeys)" -option "grp:alt_shift_toggle,gr
 # Run programs
 urxvtd -q -o -f
 screen -wipe
+
 screen -list | pgrep irssi || screen -dmS irssi irssi
-screen -list | pgrep rtorrent || screen -dmS rtorrent rtorrent 
 screen -list | pgrep mcabber || screen -dmS mcabber mcabber
+
+screen -list | pgrep rtorrent || rm -rf $rtorrent_lock && screen -dmS rtorrent rtorrent 
 
 urxvtc -title irssi -e screen -r irssi &
 urxvtc -title mcabber -e screen -r mcabber &
 
 xsetroot -cursor_name left_ptr
 
-exec /usr/bin/xmonad
-
+# exec /usr/bin/xmonad
+exec /usr/bin/i3 --force-xinerama -V > ~/.config/i3/i3.log 2>&1
+#exec /usr/bin/i3 -V > ~/.config/i3/i3.log 2>&1
