@@ -1,0 +1,4 @@
+#>www-client/firefox-6.0
+>media-video/mplayer-1.0_rc4_p20101219
+#>sys-kernel/gentoo-sources-2.6.38-r3
+#<sys-kernel/gentoo-sources-2.6.38-r3

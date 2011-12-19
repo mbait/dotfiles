@@ -1,0 +1,26 @@
+app-doc/doxygen latex
+app-editors/vim cscope
+app-portage/layman git
+app-text/apvlv	djvu
+app-text/asciidoc highlight
+app-text/aspell linguas_en linguas_ru
+app-text/lcdf-typetools kpathsea
+app-text/texlive extra
+dev-lang/python tk
+dev-libs/libxml2 python
+dev-python/django postgres
+dev-util/nvidia-cuda-sdk opencl -examples -doc
+dev-vcs/git subversion tk bash-completion
+dev-vcs/subversion -dso perl python
+mail-client/nail net
+media-libs/freetype kpathsea
+media-libs/libpng apng
+media-libs/mesa gles
+media-libs/sdl-mixer vorbis
+media-sound/moc flac vorbis aac ffmpeg mad
+net-libs/webkit-gtk -gstreamer
+net-misc/mediatomb inotify
+net-p2p/rtorrent -daemon
+net-p2p/rtorrent daemon
+x11-terms/rxvt-unicode	-vanilla
+x11-terms/rxvt-unicode 256-color

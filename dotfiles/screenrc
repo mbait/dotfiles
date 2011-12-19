@@ -1,0 +1,4 @@
+vbell off
+defflow off
+
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'

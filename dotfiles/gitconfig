@@ -1,0 +1,30 @@
+[alias]
+	ci = commit
+	co = checkout
+	wc = whatchanged
+[color "branch"]
+	current = yellow bold
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = blue bold
+	whitespace = red reverse
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[color]
+	diff = auto
+	status = auto
+	ui = auto
+[user]
+	email = asolovets@gmail.com
+	name = Alexander Solovets
+[merge]
+	tool = vimdiff
+[github]
+	user = mbait
+	token = 5835811376b59e3c2e8c690de528bda9
