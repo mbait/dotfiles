@@ -1,9 +1,0 @@
-.Xmodmap
-.Xresources
-.bashrc
-.gitconfig
-.vimrc
-.xinitrc
-xmonad.hs	~/.xmonad
-.screenrc
-.rtorrent.rc
