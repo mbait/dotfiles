@@ -50,20 +50,20 @@ def main():
     opts, args = parser.parse_args()
 
     files = dict((name, get_path(name)) for name in os.listdir(CONFIG_DIR))
+    max_len = max(len(name) for name in files)
 
-    if opts.list:
-        for v in files.values():
-            print v
+    for name, path in files.iteritems():
+        if opts.list:
+            print '%-*s -> %s' % (max_len, name, path)
 
-    if opts.install:
-        for name, path in files.iteritems():
-            try:
-                if opts.clean:
-                    os.unlink(path)
+        try:
+            if opts.clean:
+                os.unlink(path)
 
+            if opts.install:
                 os.symlink(os.path.join(CONFIG_DIR, name), path)
-            except OSError:
-                print 'error, %s' % path
+        except OSError:
+            print 'error, %s' % path
 
 
 if __name__ == '__main__':
