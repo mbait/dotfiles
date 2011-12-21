@@ -79,8 +79,8 @@ def main():
 
             if opts.install:
                 os.symlink(os.path.join(CONFIG_DIR, name), path)
-        except OSError:
-            print 'error, %s' % path
+        except OSError, e:
+            print '%s: %s' % (e, path)
 
 
 if __name__ == '__main__':
