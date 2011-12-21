@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import os
+import sys
 
 from optparse import OptionParser
 
@@ -80,7 +81,7 @@ def main():
             if opts.install:
                 os.symlink(os.path.join(CONFIG_DIR, name), path)
         except OSError, e:
-            print '%s: %s' % (e, path)
+            print >> sys.stderr, '%s: %s' % (e, path)
 
 
 if __name__ == '__main__':
