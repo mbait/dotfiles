@@ -27,10 +27,10 @@ DEFAULT_PATH = {
 
 
 def get_path(name):
+    path = name
+
     if name in DEFAULT_MAPPINGS:
         path = DEFAULT_MAPPINGS[name]
-    else:
-        path = name
 
     if name in DEFAULT_PATH:
         path = os.path.join(os.path.expanduser(DEFAULT_PATH[name]), path)
