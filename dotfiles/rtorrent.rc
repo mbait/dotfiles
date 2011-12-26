@@ -27,10 +27,10 @@ session = ./torrents/.session/
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory_1,10,10,"load_start=./torrents/.watch/*.torrent"
-schedule = watch_directory_2,10,10,"load_start=./torrents/video/.watch/*.torrent,d.set_directory=./torrents/video/"
-schedule = tied_directory,10,10,start_tied=
-schedule = untied_directory,10,10,stop_untied=
+schedule = watch_directory_1,5,5,"load_start=./torrents/.watch/*.torrent"
+schedule = watch_directory_2,5,5,"load_start=./torrents/video/.watch/*.torrent,d.set_directory=./torrents/video/"
+schedule = tied_directory,5,5,start_tied=
+schedule = untied_directory,5,5,stop_untied=
 
 # Close torrents when diskspace is low.
 #schedule = low_diskspace,5,60,close_low_diskspace=100M
