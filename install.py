@@ -29,6 +29,7 @@ DEFAULT_MAPPINGS = {
     'bashrc': '.bashrc',
     'gitconfig': '.gitconfig',
     'i3config': 'config',
+    'pentadactylrc': '.pentadactylrc',
     'rtorrent.rc': '.rtorrent.rc',
     'screenrc': '.screenrc',
     'vimrc': '.vimrc',
