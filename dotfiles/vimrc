@@ -14,6 +14,8 @@ set showcmd
 
 set incsearch
 set nohlsearch
+set ignorecase
+set smartcase
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
