@@ -11,7 +11,7 @@ set novisualbell
 set complete=
 
 " disable autofocus on first input element
-"set strictfocus
+set strictfocus='chrome:*':laissez-faire,*:despotic
 
 " Show bookmarks tab
 "set go+=B
