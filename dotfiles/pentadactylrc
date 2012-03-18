@@ -1,0 +1,47 @@
+javascript 'dactyl.beep = function() { getAttention() };'
+
+"autocmd LocationChange 'mail\.google\.com' -js modes.set(modes.PASS_THROUGH)
+"autocmd LocationChange 'google\.com\/reader' -js modes.set(modes.PASS_THROUGH)
+"autocmd LocationChange 'docs\.google\.com' -js modes.set(modes.PASS_THROUGH)
+autocmd PageLoad 'akos\.ru\/sms' -js <<EOF
+	(function akosOnLoad() {
+		dactyl.focus(content.document.getElementsByName('antispamText')[0]);
+		content.document.getElementsByName('To')[0].value = '+79024888043';
+	}());
+EOF
+
+"autocmd DOMLoad 'www.google\.com\/calendar' :fk! <C-V>q
+
+set passkeys+=mail.google.com:jk<CR>gispncrt<C-s>/?mu][
+set passkeys+=google.com/reader:jkJKnpoO
+
+"autocmd LocationChange !'mail\.google\.com' :set editor="gvim -f"
+"autocmd LocationChange 'mail\.google\.com' :set editor="gvim -f -c 'set ft=mail'"
+
+set novisualbell
+set complete=
+
+" disable autofocus on first input element
+set strictfocus='chrome:*':laissez-faire
+set strictfocus+='mail.google.com':moderate
+set strictfocus+=*:despotic
+
+" Show bookmarks tab
+"set go+=B
+
+set hk="asdf;lkj"
+
+map -builtin <C-p> <Pass>
+map -builtin <C-n> <Pass>
+map J gT
+map K gt
+map D :echo Date()<CR>
+
+map <F5> :tabopen gmail.com<CR>
+map <F6> :tabopen google.com/reader<CR>
+map <F7> :tabopen akos.ru/sms<CR>
+map <F8> :tabopen calendar.google.com<CR>
+
+map <S-F5> :source ~/.pentadactylrc<CR>
+"map ) :javascript setTimeout(function() {dactyl.beep()}, 2000)<cr>
+"map ( :javascript setTimeout(getAttention, 2000)<cr>

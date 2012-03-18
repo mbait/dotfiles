@@ -29,6 +29,7 @@ DEFAULT_MAPPINGS = {
     'bashrc': '.bashrc',
     'gitconfig': '.gitconfig',
     'i3config': 'config',
+    'pentadactylrc': '.pentadactylrc',
     'rtorrent.rc': '.rtorrent.rc',
     'screenrc': '.screenrc',
     'vimrc': '.vimrc',
@@ -38,6 +39,7 @@ DEFAULT_MAPPINGS = {
 DEFAULT_PATH = {
     'i3config': '~/.config/i3',
     'make.conf': '/etc',
+    'mcabberrc': '~/.mcabber/',
     'package.mask': '/etc/portage',
     'package.use': '/etc/portage',
     'xorg.conf': '/etc/X11',
@@ -81,7 +83,7 @@ def main():
             if opts.install:
                 os.symlink(os.path.join(CONFIG_DIR, name), path)
         except OSError, e:
-            print >> sys.stderr, '%s: %s' % (e, path)
+            print >> sys.stderr, e
 
 
 if __name__ == '__main__':

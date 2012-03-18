@@ -14,6 +14,8 @@ set showcmd
 
 set incsearch
 set nohlsearch
+set ignorecase
+set smartcase
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
@@ -24,8 +26,11 @@ set nowritebackup
 set grepprg=grep\ -nr
 
 set autoindent
-set ts=4
-set sw=4
+set ts=2
+set sw=2
+set et
+
+set path=.,,**
 
 " Plugins' options
 let VCSCommandGitDiffOpt='--no-prefix' 
