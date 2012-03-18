@@ -39,6 +39,7 @@ DEFAULT_MAPPINGS = {
 DEFAULT_PATH = {
     'i3config': '~/.config/i3',
     'make.conf': '/etc',
+    'mcabberrc': '~/.mcabber/',
     'package.mask': '/etc/portage',
     'package.use': '/etc/portage',
     'xorg.conf': '/etc/X11',
