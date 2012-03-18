@@ -29,3 +29,5 @@ export GWT_TOOLS=~/src/gwt-svn/tools/
 
 # enable autocomplete in sudo
 complete -cf sudo
+
+alias postpylog="cat | wgetpaste -X -l 'Python Tracebacks'"
