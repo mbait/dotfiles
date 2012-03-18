@@ -23,8 +23,8 @@ screen -list | pgrep mcabber || screen -dmS mcabber mcabber
 
 screen -list | pgrep rtorrent || rm -rf $rtorrent_lock && screen -dmS rtorrent rtorrent 
 
-urxvtc -title irssi -e screen -r irssi &
-urxvtc -title mcabber -e screen -r mcabber &
+urxvtc -T irssi -e screen -r irssi &
+urxvtc -T mcabber -e screen -r mcabber &
 
 xsetroot -cursor_name left_ptr
 
