@@ -1,6 +1,7 @@
 [alias]
 	ci = commit
 	co = checkout
+	st = status
 	wc = whatchanged
 [color "branch"]
 	current = yellow bold
