@@ -2,7 +2,6 @@
 
 set -e
 
-
 cd dotfiles/
 
 lnabs () {
@@ -23,3 +22,10 @@ lnabs bash_aliases ~/.bash_aliases
 lnabs bashrc $target && source $target
 
 lnabs vimrc ~/.vimrc
+
+for terminfo in /usr/share/terminfo/r/rxvt-unicode-256color; do
+  if [ -r $terminfo ]; then
+    mkdir -p ~/.terminfo/r/
+    ln -svf $terminfo ~/.terminfo/r/
+  fi
+done
