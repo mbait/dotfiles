@@ -19,6 +19,7 @@ lnabs gitconfig	~/.config/git/config
 mkdir -p ~/.config/i3/ && lnabs i3config ~/.config/i3/config
 
 target=~/.bashrc
+lnabs bash_aliases ~/.bash_aliases
 lnabs bashrc $target && source $target
 
 lnabs vimrc ~/.vimrc
