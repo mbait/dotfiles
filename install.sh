@@ -25,6 +25,9 @@ lnabs tmux.conf ~/.tmux.conf
 lnabs toprc ~/.toprc
 lnabs vimrc ~/.vimrc
 
+mkdir -p ~/bin
+lnabs lesspipe ~/bin
+
 for terminfo in /usr/share/terminfo/r/rxvt-unicode-256color; do
   if [ -r $terminfo ]; then
     mkdir -p ~/.terminfo/r/
