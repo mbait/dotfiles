@@ -22,6 +22,7 @@ lnabs bash_aliases ~/.bash_aliases
 lnabs bashrc $target && source $target
 
 lnabs tmux.conf ~/.tmux.conf
+lnabs toprc ~/.toprc
 lnabs vimrc ~/.vimrc
 
 for terminfo in /usr/share/terminfo/r/rxvt-unicode-256color; do
