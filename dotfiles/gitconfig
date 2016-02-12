@@ -26,9 +26,6 @@
 	name = Alexander Solovets
 [merge]
 	tool = vimdiff
-[github]
-	user = mbait
-	token = 5835811376b59e3c2e8c690de528bda9
 [pull]
 	rebase = true
 [branch]
