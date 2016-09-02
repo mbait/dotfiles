@@ -10,6 +10,7 @@ set sessionoptions=buffers,curdir,folds,resize,tabpages
 set encoding=utf-8
 set laststatus=2
 set number
+set relativenumber
 set showcmd
 
 set incsearch
