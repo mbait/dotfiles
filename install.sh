@@ -19,6 +19,7 @@ mkdir -p ~/.config/i3/ && lnabs i3config ~/.config/i3/config
 
 target=~/.bashrc
 lnabs bash_aliases ~/.bash_aliases
+lnabs bash_env ~/.bash_env
 lnabs bashrc $target && source $target
 
 lnabs tmux.conf ~/.tmux.conf
