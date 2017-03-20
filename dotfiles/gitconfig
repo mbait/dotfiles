@@ -22,11 +22,16 @@
 	status = auto
 	ui = auto
 [user]
-	email = asolovets@gmail.com
+	email = asolovets+gpg@gmail.com
 	name = Alexander Solovets
+	signingkey = AA6454DE
 [merge]
 	tool = vimdiff
 [pull]
 	rebase = true
 [branch]
 	autosetuprebase = always
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
