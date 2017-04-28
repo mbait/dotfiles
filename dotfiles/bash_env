@@ -1,5 +1,5 @@
-LESS='-CR'
-LESSOPEN='|lesspipe %s'
+export LESS='-CR'
+export LESSOPEN='|lesspipe %s'
 
 # See gpg-agent(1).
 GPG_TTY=$(tty)
