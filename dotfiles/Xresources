@@ -513,5 +513,5 @@ URxvt*color15: #e2e2e2
 !URxvt*color14: #4bb8fd
 !URxvt*color15: #a020f0
 
-URxvt*.font:	-*-terminus-medium-*-*-*-16-160-72-72-c-*-iso10646-1
+URxvt*.font:	xft:Terminus:pixelsize=14
 URxvt*.urgentOnBell: true
