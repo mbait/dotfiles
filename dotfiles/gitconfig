@@ -35,3 +35,5 @@
 	program = gpg2
 [commit]
 	gpgsign = true
+[push]
+	default = simple
