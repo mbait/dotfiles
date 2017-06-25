@@ -7,6 +7,7 @@ cd dotfiles/
 lnabs () {
   local src=$PWD/$1
   local dst=$2
+  [ -d `dirname $dst` ] || mkdir -p $dst
   [ -L $dst ] && ln -svf $src $dst || ln -svb $src $dst
 }
 
@@ -35,3 +36,7 @@ for terminfo in /usr/share/terminfo/r/rxvt-unicode-256color; do
     ln -svf $terminfo ~/.terminfo/r/
   fi
 done
+
+lnabs gpg-agent.conf ~/.gnupg/gpg-agent.conf
+echo 'Reloading gpg-agent... '
+gpg-connect-agent reloadagent /bye
