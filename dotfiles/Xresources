@@ -275,7 +275,7 @@ WPFMShell*XmDialogShell*XmDrawingArea*background:	#ffffff
 WPFMShell*XmDialogShell*XmDrawingArea*foreground:	#000000
 WPFMShell*XmDialogShell*XmList*background:	#ffffff
 WPFMShell*XmDialogShell*XmList*foreground:	#000000
-WPFMShell*XmDialogShell*XmScrolledWindow*XmDrawingArea.background:	
+WPFMShell*XmDialogShell*XmScrolledWindow*XmDrawingArea.background:
 WPFMShell*XmDialogShell*XmScrolledWindow*XmDrawingArea.foreground:	#000000
 WPFMShell*XmDialogShell*XmText*background:	#ffffff
 WPFMShell*XmDialogShell*XmText*foreground:	#000000
@@ -455,9 +455,9 @@ URxvt*multiClickTime: 250
 
 URxvt*foreground: #f2f2f2
 URxvt*background: #101010
- 
+
 ! Normal
-!  
+!
 ! black
 URxvt*color0:  #6c6c6c
 ! red
@@ -474,7 +474,7 @@ URxvt*color5:  #ea96eb
 URxvt*color6:  #c9caec
 ! white
 URxvt*color7:  #f2f2f2
- 
+
 ! Light
 
 ! black
@@ -513,5 +513,5 @@ URxvt*color15: #e2e2e2
 !URxvt*color14: #4bb8fd
 !URxvt*color15: #a020f0
 
-URxvt*.font:	xft:Terminus:pixelsize=14
+URxvt*.font:	xft:Terminus:pixelsize=18
 URxvt*.urgentOnBell: true
