@@ -92,3 +92,5 @@ if ! shopt -oq posix; then
 fi
 
 complete -cf sudo
+
+[ "$TERM" = 'rxvt-unicode-256color' ] && exec tmux attach
