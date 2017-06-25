@@ -86,6 +86,8 @@ runtime! ftplugin/man.vim
 
 let g:pep8_map='<F8>'
 
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Fix weird colors in vimdiff
 "highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
 "highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
