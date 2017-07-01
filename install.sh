@@ -26,6 +26,7 @@ lnabs bashrc $target && source $target
 lnabs tmux.conf ~/.tmux.conf
 lnabs toprc ~/.toprc
 lnabs vimrc ~/.vimrc
+lnabs vim ~/.vim
 
 mkdir -p ~/bin
 lnabs lesspipe ~/bin
