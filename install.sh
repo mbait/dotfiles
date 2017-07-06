@@ -24,6 +24,7 @@ for config in  \
   bash_aliases \
   bash_env     \
   bashrc       \
+  devscripts   \
   tmux.conf    \
   toprc        \
   vimrc        \
