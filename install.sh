@@ -11,24 +11,36 @@ lnabs () {
   [ -L $dst ] && ln -svf $src $dst || ln -svb $src $dst
 }
 
-target=~/.Xresources
-lnabs Xresources $target && xrdb -merge $target
-
-for c in git i3; do
-  mkdir -p ~/.config/$c && lnabs "$c"config ~/.config/$c/config
+for config in \
+  git         \
+  i3;
+do
+  mkdir -vp ~/.config/$config &&
+    lnabs ${config}config ~/.config/$config/config
 done
 
-for c in bash_aliases bash_env bashrc tmux.conf toprc vimrc vim; do
-  lnabs $c ~/.$c
+for config in  \
+  Xresources   \
+  bash_aliases \
+  bash_env     \
+  bashrc       \
+  tmux.conf    \
+  toprc        \
+  vimrc        \
+  vim;
+do
+  lnabs $config ~/.$config
 done
 
-target=~/.bashrc
-lnabs bashrc $target && source $target
+xrdb -merge ~/.Xresources
+source ~/.bashrc
 
 mkdir -p ~/bin
 lnabs lesspipe ~/bin
 
-for terminfo in /usr/share/terminfo/r/rxvt-unicode-256color; do
+for terminfo in                                \
+  /usr/share/terminfo/r/rxvt-unicode-256color;
+do
   if [ -r $terminfo ]; then
     mkdir -p ~/.terminfo/r/
     ln -svf $terminfo ~/.terminfo/r/
@@ -38,3 +50,5 @@ done
 lnabs gpg-agent.conf ~/.gnupg/gpg-agent.conf
 echo -n 'Reloading gpg-agent... '
 gpg-connect-agent reloadagent /bye
+
+source ~/.bashrc
