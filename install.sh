@@ -24,6 +24,7 @@ for config in  \
   bash_aliases \
   bash_env     \
   bashrc       \
+  bin          \
   devscripts   \
   tmux.conf    \
   toprc        \
@@ -35,9 +36,6 @@ done
 
 xrdb -merge ~/.Xresources
 source ~/.bashrc
-
-mkdir -p ~/bin
-lnabs lesspipe ~/bin
 
 for terminfo in                                \
   /usr/share/terminfo/r/rxvt-unicode-256color;
