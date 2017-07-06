@@ -1,7 +1,9 @@
 " Begin .vimrc
+
 "colorscheme delek
-colorscheme desert256
+"colorscheme desert256
 "colorscheme desert
+colorscheme distinguished
 
 set nocompatible
 set autowrite
@@ -20,77 +22,64 @@ set smartcase
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
 
 set nobackup
 set nowritebackup
 set grepprg=grep\ -nr
 
 set autoindent
-set ts=2
-set sw=2
-set et
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 set path=.,,**
 
-" Plugins' options
-let VCSCommandGitDiffOpt='--no-prefix' 
+""" VCSCommand plugin options
+let VCSCommandGitDiffOpt='--no-prefix'
 let g:netrw_browsex_viewer="xdg-open"
 let g:gs_indent_log=0
+"nmap <leader>gi <Plug>VCSAnnotate :!git show <C-R><C-W><CR> :q<CR>
 
 let g:gist_clip_command='xclip'
 
-hi CursorLine cterm=NONE ctermbg=242
-"hi CursorLine cterm=reverse
-
+set cursorline
+autocmd WinEnter * set cursorline
+autocmd WinLeave * set nocursorline
+highlight lCursor guifg=NONE guibg=Cyan
 "au WinLeave * set nocursorline nocursorcolumn
 "au WinEnter * set cursorline cursorcolumn
-"set cursorline cursorcolumn
+"hi CursorLine cterm=NONE ctermbg=242
+"hi CursorLine cterm=reverse
 
-au WinEnter * set cursorline
-au WinLeave * set nocursorline
-set cursorline
-
-set spelllang=en,ru_RU
+set spelllang=en,ru
+autocmd FileType markdown,tex,text set spell
+"map <silent> <leader>sc :set spell<CR>
+"map <silent> <leader>ns :set nospell<CR>
 
 "vmap <F2> y:call system("xlicp -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 "nmap <F3> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
 "map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 map <F4> :vsplit<CR><C-W>l:grep <C-R><C-W> *<CR>:copen<CR>
-map <F5> :make<CR>
-map <F6> :make<CR>:cwindow<cr><cr>
-map <silent> <leader>sc :set spell<CR>
-map <silent> <leader>ns :set nospell<CR>
+"map <F5> :make<CR>
+"map <F6> :make<CR>:cwindow<cr><cr>
 "imap [ []<LEFT>
 "imap ( ()<LEFT>
 "imap { {}<LEFT>
-imap <C-L> <C-O>a
-nmap <leader>gi <Plug>VCSAnnotate :!git show <C-R><C-W><CR> :q<CR>
+"imap <C-L> <C-O>a
 "map <F9> :exec ":!./$(find -type f -executable | head -1)".<CR><CR>
 
-" autoload vim settings from cwd
-"if !exists('s:loaded_local_vimrc')
-"	exe 'silent! source '.getcwd().'/.vim/vimrc'
-"	let s:loaded_local_vimrc=1
-"endif
-"set exrc
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype on
-filetype indent on
-
+filetype plugin indent on
 runtime! ftplugin/man.vim
 
-let g:pep8_map='<F8>'
-
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+autocmd BufWritePost *.c,*.cc,*.cpp,*.h silent make -k | unsilent redraw! | cwindow
 
 " Fix weird colors in vimdiff
 "highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
 "highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
 "highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
 "highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta
+
 " End .vimrc
