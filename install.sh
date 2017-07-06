@@ -8,7 +8,7 @@ lnabs () {
   local src=$PWD/$1
   local dst=$2
   [ -d `dirname $dst` ] || mkdir -p $dst
-  [ -L $dst ] && ln -svf $src $dst || ln -svb $src $dst
+  [ -L $dst ] && ln -Tfsv $src $dst || ln -Tbsv $src $dst
 }
 
 for config in \
