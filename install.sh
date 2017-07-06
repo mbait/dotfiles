@@ -14,19 +14,16 @@ lnabs () {
 target=~/.Xresources
 lnabs Xresources $target && xrdb -merge $target
 
-mkdir -p ~/.config/git/
-lnabs gitconfig	~/.config/git/config
-mkdir -p ~/.config/i3/ && lnabs i3config ~/.config/i3/config
+for c in git i3; do
+  mkdir -p ~/.config/$c && lnabs "$c"config ~/.config/$c/config
+done
+
+for c in bash_aliases bash_env bashrc tmux.conf toprc vimrc vim; do
+  lnabs $c ~/.$c
+done
 
 target=~/.bashrc
-lnabs bash_aliases ~/.bash_aliases
-lnabs bash_env ~/.bash_env
 lnabs bashrc $target && source $target
-
-lnabs tmux.conf ~/.tmux.conf
-lnabs toprc ~/.toprc
-lnabs vimrc ~/.vimrc
-lnabs vim ~/.vim
 
 mkdir -p ~/bin
 lnabs lesspipe ~/bin
@@ -39,5 +36,5 @@ for terminfo in /usr/share/terminfo/r/rxvt-unicode-256color; do
 done
 
 lnabs gpg-agent.conf ~/.gnupg/gpg-agent.conf
-echo 'Reloading gpg-agent... '
+echo -n 'Reloading gpg-agent... '
 gpg-connect-agent reloadagent /bye
