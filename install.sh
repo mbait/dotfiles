@@ -24,7 +24,6 @@ for config in  \
   bash_aliases \
   bash_env     \
   bashrc       \
-  bin          \
   devscripts   \
   tmux.conf    \
   toprc        \
@@ -33,6 +32,8 @@ for config in  \
 do
   lnabs $config ~/.$config
 done
+
+lnabs bin ~/bin
 
 xrdb -merge ~/.Xresources
 source ~/.bashrc
