@@ -75,7 +75,26 @@ runtime! ftplugin/man.vim
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
-autocmd BufWritePost *.c,*.cc,*.cpp,*.h silent make -k | unsilent redraw! | cwindow
+"autocmd BufWritePost *.c,*.cc,*.cpp,*.h silent make -k | unsilent redraw! | cwindow
+
+fu! s:clang_format()
+ if filereadable('.clang-format')
+   "TODO: replace with system clang-format when the newer version is available
+   exec 'py3file ' . $HOME .  '/.vim/addons/syntax/clang-format.py'
+ endif
+endfu
+
+fu! s:make()
+  if filereadable("Makefile") || filereadble("makefile")
+    silent make -k | unsilent redraw! | cwindow
+  endif
+endfu
+
+aug c_cpp
+  au!
+  au BufWritePre *.c,*.h,*.cc,*.cpp call s:clang_format()
+  au BufWritePost * call s:make()
+aug end
 
 " Fix weird colors in vimdiff
 "highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
