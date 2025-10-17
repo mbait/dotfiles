@@ -1,4 +1,5 @@
 [alias]
+	am = commit --amend -a -C HEAD
 	ci = commit
 	co = checkout
 	st = status
