@@ -1,4 +1,6 @@
 ---
+overwrite_existing: false
+
 - name: Ensure ~/.config subdirectories exist
   file:
     path: "{{ ansible_env.HOME }}/.config/{{ item }}"
@@ -13,7 +15,7 @@
     src: "{{ playbook_dir }}/../../dotfiles/{{ item.src }}"
     dest: "{{ ansible_env.HOME }}/.config/{{ item.dest }}"
     state: link
-    force: false
+    force: "{{ overwrite_existing }}"
   loop:
     - { src: 'emacs', dest: 'emacs' }
     - { src: 'gitconfig', dest: 'git/config' }
@@ -24,7 +26,7 @@
     src: "{{ playbook_dir }}/../../dotfiles/{{ item }}"
     dest: "{{ ansible_env.HOME }}/.{{ item }}"
     state: link
-    force: false
+    force: "{{ overwrite_existing }}"
   loop:
     - tmux.conf
     - toprc
@@ -36,7 +38,7 @@
     src: "{{ playbook_dir }}/../../dotfiles/bin"
     dest: "{{ ansible_env.HOME }}/bin"
     state: link
-    force: false
+    force: "{{ overwrite_existing }}"
 
 #- name: Symlink GPG agent config
 #  file:
