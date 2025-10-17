@@ -1,0 +1,49 @@
+---
+- name: Ensure ~/.config subdirectories exist
+  file:
+    path: "{{ ansible_env.HOME }}/.config/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - git
+    - i3
+
+- name: Symlink .config files
+  file:
+    src: "{{ playbook_dir }}/../../dotfiles/{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/.config/{{ item.dest }}"
+    state: link
+    force: false
+  loop:
+    - { src: 'gitconfig', dest: 'git/config' }
+    - { src: 'i3config', dest: 'i3/config' }
+
+- name: Symlink top-level dotfiles
+  file:
+    src: "{{ playbook_dir }}/../../dotfiles/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.{{ item }}"
+    state: link
+    force: false
+  loop:
+    - tmux.conf
+    - toprc
+    - vimrc
+    - vim
+
+- name: Symlink ~/bin
+  file:
+    src: "{{ playbook_dir }}/../../dotfiles/bin"
+    dest: "{{ ansible_env.HOME }}/bin"
+    state: link
+    force: false
+
+#- name: Symlink GPG agent config
+#  file:
+#    src: "{{ playbook_dir }}/../../dotfiles/gpg-agent.conf"
+#    dest: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
+#    state: link
+#    force: true
+
+#- name: Reload GPG agent
+#  command: gpg-connect-agent reloadagent /bye
+#  ignore_errors: yes
