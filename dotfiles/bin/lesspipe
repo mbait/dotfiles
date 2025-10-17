@@ -3,7 +3,7 @@
 PYGMENTIZE='pygmentize -f 256 -O style=rrt'
 
 case `basename "$1"` in
-  *.c|*.cc|*.clj|*.cpp|*.el|*.h|*.java|*.js|*.php|*.py|*.sh|*.sql|*.tcl)
+  *.c|*.cc|*.clj|*.cpp|*.el|*.h|*.hpp|*.java|*.js|*.php|*.py|*.rb|*.sh|*.sql|*.tcl)
     $PYGMENTIZE "$1" | awk '{printf "%3d┃%s\n",NR,$0}';;
   *.md|README|ReleaseLog)
     pandoc -s -t html "$1" | w3m -T text/html -cols $(tput cols) -dump;;
