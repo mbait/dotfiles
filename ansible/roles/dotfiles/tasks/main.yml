@@ -15,6 +15,7 @@
     state: link
     force: false
   loop:
+    - { src: 'emacs', dest: 'emacs' }
     - { src: 'gitconfig', dest: 'git/config' }
     - { src: 'i3config', dest: 'i3/config' }
 
