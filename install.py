@@ -32,7 +32,6 @@ DEFAULT_MAPPINGS = {
     'pentadactylrc': '.pentadactylrc',
     'rtorrent.rc': '.rtorrent.rc',
     'screenrc': '.screenrc',
-    'vimrc': '.vimrc',
     'xinitrc': '.xinitrc',
 }
 
@@ -42,6 +41,7 @@ DEFAULT_PATH = {
     'mcabberrc': '~/.mcabber/',
     'package.mask': '/etc/portage',
     'package.use': '/etc/portage',
+    'vim': '~/.config',
     'xorg.conf': '/etc/X11',
 }
 
