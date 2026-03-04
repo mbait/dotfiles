@@ -41,6 +41,7 @@ DEFAULT_PATH = {
     'mcabberrc': '~/.mcabber/',
     'package.mask': '/etc/portage',
     'package.use': '/etc/portage',
+    'tmux': '~/.config',
     'vim': '~/.config',
     'xorg.conf': '/etc/X11',
 }
