@@ -23,9 +23,9 @@
 	status = auto
 	ui = auto
 [user]
-	email = asolovets+gpg@gmail.com
+	email = asolovets@gmail.com
 	name = Alexander Solovets
-	signingkey = AA6454DE
+#	signingkey = AA6454DE
 [merge]
 	tool = vimdiff
 [pull]
