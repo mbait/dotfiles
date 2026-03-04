@@ -27,7 +27,6 @@ DEFAULT_MAPPINGS = {
     'Xmodmap': '.Xmodmap',
     'Xresources': '.Xresources',
     'bashrc': '.bashrc',
-    'gitconfig': '.gitconfig',
     'i3config': 'config',
     'pentadactylrc': '.pentadactylrc',
     'rtorrent.rc': '.rtorrent.rc',
@@ -37,6 +36,7 @@ DEFAULT_MAPPINGS = {
 
 DEFAULT_PATH = {
     'i3config': '~/.config/i3',
+    'git': '~/.config',
     'make.conf': '/etc',
     'mcabberrc': '~/.mcabber/',
     'package.mask': '/etc/portage',
