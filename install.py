@@ -62,6 +62,13 @@ def get_path(name):
 
 
 def main():
+    print('''
+********************************************************************
+* DEPRECTED!!!                                                     *
+* THIS SCRIPT HAS BEEN DEPRECTED IN FAVOR OF ANSIBLE CONFIGURATION *
+********************************************************************
+    '''.lstrip(), file=sys.stderr)
+
     parser = OptionParser()
     parser.add_option('-c', '--clean', action='store_true')
     parser.add_option('-l', '--list', action='store_true')
