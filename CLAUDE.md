@@ -9,7 +9,7 @@ Personal dotfiles. Source configs live under `dotfiles/`; an Ansible role symlin
 ## Install / apply changes
 
 ```sh
-cd ansible && ansible-playbook playbooks/install.yml
+cd ansible && ansible-playbook playbooks/bootstrap.yml
 ```
 
 The `cd` matters: `ansible.cfg` is only auto-loaded when CWD is `ansible/`. It pins `inventory`, `roles_path`, and `transport = local`, so the playbook always runs against `localhost` with no flags.
@@ -17,7 +17,7 @@ The `cd` matters: `ansible.cfg` is only auto-loaded when CWD is `ansible/`. It p
 The role refuses to touch existing files by default. To replace existing files/symlinks (e.g. when re-applying after editing the role):
 
 ```sh
-ansible-playbook playbooks/install.yml -e overwrite_existing=true
+ansible-playbook playbooks/bootstrap.yml -e overwrite_existing=true
 ```
 
 Note: Ansible's `file` module will not turn a non-empty real directory into a symlink even with `force: true`. If a destination ever ends up as a populated directory (rather than a symlink or single file), the play will fail there — resolve by moving its contents into the repo and re-running, or switch that destination to file-level symlinks (see how `~/.config/git/` is handled).
