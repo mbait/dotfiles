@@ -8,8 +8,6 @@ Personal dotfiles. Source configs live under `dotfiles/`; an Ansible role symlin
 
 ## Install / apply changes
 
-The Ansible role is the supported installer (the older `install.py` is deprecated and prints a deprecation banner).
-
 ```sh
 cd ansible && ansible-playbook playbooks/install.yml
 ```
@@ -27,11 +25,10 @@ Note: Ansible's `file` module will not turn a non-empty real directory into a sy
 ## Layout that matters
 
 - `dotfiles/` — source of truth for every managed config. New configs go here.
-- `ansible/roles/dotfiles/tasks/main.yml` — the only place that defines what gets symlinked and where. **Adding a new dotfile requires adding an entry here**; dropping a file under `dotfiles/` alone is not enough (unlike the old `install.py`, which auto-discovered everything).
+- `ansible/roles/dotfiles/tasks/main.yml` — the only place that defines what gets symlinked and where. **Adding a new dotfile requires adding an entry here**; dropping a file under `dotfiles/` alone is not enough.
 - `ansible/roles/dotfiles/defaults/main.yml` — holds `overwrite_existing` default.
+- `ansible/roles/dotfiles/handlers/main.yml` — notified handlers (e.g. `Reload gpg-agent` after the gpg-agent config changes).
 - `dotfiles.old/` — retired configs (Xorg, i3, bash, gentoo portage, etc.). Archive only; not wired to the installer.
-- `bin/swap_ws.py` — standalone utility, unrelated to the installer.
-- `install.py` — deprecated; kept only so old muscle-memory invocations print the banner. Do not extend it.
 
 ## Symlink shapes
 
