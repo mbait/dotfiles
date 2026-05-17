@@ -39,7 +39,20 @@
   loop:
     - { src: 'toprc',    dest: '.toprc' }
     - { src: 'screenrc', dest: '.screenrc' }
-    - { src: 'bin',      dest: 'bin' }
+
+- name: Ensure XDG user-binaries dir exists
+  file:
+    path: "{{ xdg_bin_home }}"
+    state: directory
+
+- name: Symlink user binaries into XDG user-binaries dir
+  file:
+    src: "{{ item }}"
+    dest: "{{ xdg_bin_home }}/{{ item | basename }}"
+    state: link
+    force: "{{ overwrite_existing }}"
+  with_fileglob:
+    - "{{ playbook_dir }}/../../dotfiles/bin/*"
 
 - name: Ensure ~/.gnupg exists with secure perms
   file:

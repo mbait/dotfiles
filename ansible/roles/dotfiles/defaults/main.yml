@@ -1,2 +1,8 @@
 ---
 overwrite_existing: false
+
+# XDG user-binaries dir. Honors $XDG_BIN_HOME if set (community extension to
+# the XDG Base Directory spec); otherwise falls back to ~/.local/bin, which is
+# what systemd-path resolves "user-binaries" to and what most distros add to
+# PATH by default.
+xdg_bin_home: "{{ lookup('env', 'XDG_BIN_HOME') or (lookup('env', 'HOME') + '/.local/bin') }}"
