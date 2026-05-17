@@ -30,16 +30,27 @@
     - config
     - ignore
 
-- name: Symlink ~/.toprc
+- name: Symlink top-level dotfiles
   file:
-    src: "{{ playbook_dir }}/../../dotfiles/toprc"
-    dest: "{{ lookup('env', 'HOME') }}/.toprc"
+    src: "{{ playbook_dir }}/../../dotfiles/{{ item.src }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item.dest }}"
     state: link
     force: "{{ overwrite_existing }}"
+  loop:
+    - { src: 'toprc',    dest: '.toprc' }
+    - { src: 'screenrc', dest: '.screenrc' }
+    - { src: 'bin',      dest: 'bin' }
 
-- name: Symlink ~/bin
+- name: Ensure ~/.gnupg exists with secure perms
   file:
-    src: "{{ playbook_dir }}/../../dotfiles/bin"
-    dest: "{{ lookup('env', 'HOME') }}/bin"
+    path: "{{ lookup('env', 'HOME') }}/.gnupg"
+    state: directory
+    mode: '0700'
+
+- name: Symlink ~/.gnupg/gpg-agent.conf
+  file:
+    src: "{{ playbook_dir }}/../../dotfiles/gpg-agent.conf"
+    dest: "{{ lookup('env', 'HOME') }}/.gnupg/gpg-agent.conf"
     state: link
     force: "{{ overwrite_existing }}"
+  notify: Reload gpg-agent

@@ -1,0 +1,4 @@
+---
+- name: Reload gpg-agent
+  command: gpg-connect-agent reloadagent /bye
+  ignore_errors: yes
